@@ -43,7 +43,7 @@ struct menu
 // }
 
 void makanan()
-{.
+{
     int jumlah;
     printf("mau input berapa data makanan: ");
     scanf("%d", &jumlah);
