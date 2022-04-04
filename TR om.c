@@ -1,96 +1,121 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <conio.h>
 #include <time.h>
 
-struct menu
+typedef struct
 {
-    char food[30];
     char makanan[30];
     char minuman[30];
     int harga;
 
-} resto;
+}resto;
 
-// int login()
-// {
-//     char user[10], pass[10];
+resto menu;
 
-//     time_t now = time(0);
-//     char *dt = ctime(&now);
-//     printf("%s", dt);
 
-//     printf("\n");
+ int login()
+ {
+     char user[10], pass[10];
 
-//     printf("Masukan Username : ");
-//     scanf("%s", user);
-//     printf("\nMasukan Password : ");
-//     scanf("%s", pass);
+     time_t now = time(0);
+     char *dt = ctime(&now);
+     printf("%s", dt);
 
-//     if (strcmp(user, "admin") == 0 && strcmp(pass, "123") == 0)
-//     {
-//         printf("Akses diterima Selamat Datang\n");
-//         // system("clear");
-//         return 1;
-//     }
-//     else
-//     {
+     printf("\n");
 
-//         printf("\nUsername/password salah!\n");
-//         printf("\nTap apapun untuk mencoba login ulang ");
+     printf("Masukan Username : ");
+     scanf("%s", user);
+     printf("\nMasukan Password : ");
+     fflush(stdin);
+     char ch;
+     int i=0;
+     while ((ch=(char)_getch())!='\r')
+     {
+         pass[i]=ch;
+         printf("*");
 
-//         return 0;
-//     }
-// }
+         i++;
+     }
+     printf("\n");
+
+
+     if (strcmp(user, "admin") == 0 && strcmp(pass, "123") == 0)
+     {
+         printf("Akses diterima Selamat Datang\n");
+          system("cls");
+         return 1;
+     }
+     else
+     {
+
+         printf("\nUsername/password salah!\n");
+         printf("\nTap apapun untuk mencoba login ulang ");
+
+         return 0;
+     }
+ }
 
 void makanan()
 {
-    int jumlah;
+    File *fptr;
+    ptr =fopen("menu.txt", "a");
+    system("cls");
+
+    system("cls");
+    int jumlah,i;
     printf("mau input berapa data makanan: ");
     scanf("%d", &jumlah);
-    for (int i = 0; i < jumlah; i++)
+    for (i = 0; i <jumlah; i++)
     {
-        printf("menu makanan: ");
-        scanf("%s", &resto.makanan);
-        gets(resto.makanan);
+        printf("Makanan ke %d: ",i+1);
+        scanf("%s",menu.makanan);
+        gets(menu.makanan);
     }
-    printf("berhasil di simpan\n");
+    printf("Data makananan berhasil di simpan\n\n");
+
 }
 void minuman()
 {
-    int jumlah;
-    printf("mau input berapa data minuman: ");
+    system("cls");
+    int jumlah,i;
+    printf("mau input berapa data minum: ");
     scanf("%d", &jumlah);
-    for (int i = 0; i < jumlah; i++)
+    for (i = 0; i <jumlah; i++)
     {
-        printf("menu makanan: ");
-        scanf("%s", &resto.minuman);
-        gets(resto.minuman);
+        printf("Minuman kes %d: ",i+1);
+        scanf("%s",menu.minuman);
+        gets(menu.minuman);
     }
-    printf("berhasil di simpan\n");
+    printf("\n");
+    printf("Data minuman berhasil di simpan\n\n");
 }
-
 void lihat()
 {
-    printf("%s",resto.makanan);
-    printf("%s",resto.minuman);
+
 }
-// void hapus()
-// {
 
-// }
-
-int main()
+void keluar()
+{
+    system("cls");
+    printf("+----------------+\n");
+    printf(" TR Asdos ASD\n");
+    printf("+----------------+\n");
+    printf("Ricardho Gunawan\n");
+    printf("Carens Gabriel\n");
+    printf("Stevie Angela Andrianto");
+    exit(0);
+}
+void main()
 {
     int pilihan = 0;
-
-    // char ulang;
-
-    // while (login() == 0)
-    // {
-    //     scanf("%c", &ulang);
-    //     getchar();
-    // }
+    char ulang;
+    while (login() == 0)
+    {
+        scanf("%c", &ulang);
+        getchar();
+    }
 
     do
     {
@@ -107,18 +132,17 @@ int main()
         printf("+---------------------------------+\n");
         printf("silakan masukan pilihan: ");
         scanf("%d", &pilihan);
-
         switch (pilihan)
         {
         case 1:
             makanan();
             break;
-        case 2:
-            minuman();
-            break;
-        case 3:
-            lihat();
-            break;
+         case 2:
+             minuman();
+             break;
+//        case 3:
+//            lihat();
+//            break;
         // case 4:
         //     edit();
         //     break;
@@ -128,9 +152,13 @@ int main()
         // case 6:
         //     mencari_data();
         //     break;
+        case 7:
+            keluar();
         default:
             printf("Silakan masukan pilihanmu: ");
             break;
         }
     } while (pilihan != 7);
 }
+
+
