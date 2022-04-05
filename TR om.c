@@ -59,42 +59,41 @@ resto menu;
 
 void makanan()
 {
-    File *fptr;
-    ptr =fopen("menu.txt", "a");
-    system("cls");
-
-    system("cls");
-    int jumlah,i;
+    char resto[255];
+    int i=0;
+    FILE *fp;
+    fp=fopen("menuresto.txt","w");
+    int jumlah;
     printf("mau input berapa data makanan: ");
     scanf("%d", &jumlah);
     for (i = 0; i <jumlah; i++)
     {
-        printf("Makanan ke %d: ",i+1);
-        scanf("%s",menu.makanan);
-        gets(menu.makanan);
-    }
-    printf("Data makananan berhasil di simpan\n\n");
-
-}
-void minuman()
-{
-    system("cls");
-    int jumlah,i;
-    printf("mau input berapa data minum: ");
-    scanf("%d", &jumlah);
-    for (i = 0; i <jumlah; i++)
-    {
-        printf("Minuman kes %d: ",i+1);
-        scanf("%s",menu.minuman);
-        gets(menu.minuman);
+        printf("Makanan ke %d: ",i+1); fflush(stdin); gets(resto);
+        fprintf(fp, "%s\n",resto);
     }
     printf("\n");
-    printf("Data minuman berhasil di simpan\n\n");
+    fclose(fp);
+    printf("Data makananan berhasil di simpan\n\n");
 }
-void lihat()
-{
-
-}
+//void minuman()
+//{
+//    system("cls");
+//    int jumlah,i;
+//    printf("mau input berapa data minum: ");
+//    scanf("%d", &jumlah);
+//    for (i = 0; i <jumlah; i++)
+//    {
+//        printf("Minuman kes %d: ",i+1);
+//        scanf("%s",menu.minuman);
+//        gets(menu.minuman);
+//    }
+//    printf("\n");
+//    printf("Data minuman berhasil di simpan\n\n");
+//}
+//void lihat()
+//{
+//
+//}
 
 void keluar()
 {
@@ -137,9 +136,9 @@ void main()
         case 1:
             makanan();
             break;
-         case 2:
-             minuman();
-             break;
+//         case 2:
+//             minuman();
+//             break;
 //        case 3:
 //            lihat();
 //            break;
@@ -160,5 +159,3 @@ void main()
         }
     } while (pilihan != 7);
 }
-
-
