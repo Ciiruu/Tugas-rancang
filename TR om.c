@@ -8,17 +8,14 @@ typedef struct
 {
     char makanan[30];
     char minuman[30];
-    int harga;
 
-}resto;
+}tambah,cek,hapus,sort[100];
 
-resto menu;
 
 
  int login()
  {
      char user[10], pass[10];
-
      time_t now = time(0);
      char *dt = ctime(&now);
      printf("%s", dt);
@@ -57,44 +54,73 @@ resto menu;
      }
  }
 
-void makanan()
+void menu()
 {
-    char resto[255];
+    system("cls");
+    char makanan[255],minuman[255];
     int i=0;
     FILE *fp;
     fp=fopen("menuresto.txt","w");
     int jumlah;
-    printf("mau input berapa data makanan: ");
+    printf("mau input berapa jenis makanan : ");
     scanf("%d", &jumlah);
     for (i = 0; i <jumlah; i++)
     {
-        printf("Makanan ke %d: ",i+1); fflush(stdin); gets(resto);
-        fprintf(fp, "%s\n",resto);
+        printf("Makanan ke %d: ",i+1); fflush(stdin); gets(makanan);
+        fprintf(fp, "%s\n",makanan);
     }
-    printf("\n");
+
     fclose(fp);
-    printf("Data makananan berhasil di simpan\n\n");
+    printf("Data makananan berhasil di simpan\n");
+
+    printf("\n");
+
+    fp=fopen("menuresto.txt","a");
+    printf("mau input berapa jenis minuman : ");
+    scanf("%d", &jumlah);
+    for (i = 0; i <jumlah; i++)
+    {
+        printf("Minuman ke %d: ",i+1); fflush(stdin); gets(minuman);
+        fprintf(fp, "%s\n",minuman);
+    }
+
+    fclose(fp);
+    printf("Data makananan berhasil di simpan\n");
+    getchar();
+    system("cls");
+
 }
-//void minuman()
-//{
-//    system("cls");
-//    int jumlah,i;
-//    printf("mau input berapa data minum: ");
-//    scanf("%d", &jumlah);
-//    for (i = 0; i <jumlah; i++)
-//    {
-//        printf("Minuman kes %d: ",i+1);
-//        scanf("%s",menu.minuman);
-//        gets(menu.minuman);
-//    }
-//    printf("\n");
-//    printf("Data minuman berhasil di simpan\n\n");
-//}
-//void lihat()
+void lihat()
+{
+    system("cls");
+    char data[50];
+    int i=1;
+    FILE *fp;
+
+    fp=fopen("menuresto.txt", "r");
+
+    while(fgets(data,50,fp)!=NULL) //membaca dan mengulang sampai data habis
+    {
+        printf("menu-%d : %s", i, data);
+        i++;
+    }
+    fclose(fp);
+    system("pause");
+    system("cls");
+
+}
+//void tambahdata()
 //{
 //
 //}
-
+//void edit()
+//{
+//
+//}
+//void hapus()
+//{
+//
+//}
 void keluar()
 {
     system("cls");
@@ -118,13 +144,14 @@ void main()
 
     do
     {
+//        system("cls");
         printf("+---------------------------------+\n");
         printf("selamat datang di database restoran\n");
         printf("+---------------------------------+\n");
-        printf("1. untuk Input menu makanan\n");
-        printf("2. untuk Input menu minuman\n");
-        printf("3. untuk melihat isi inputan\n");
-        printf("4. untuk mengupdate isi inputan\n");
+        printf("1. untuk Input menu makanan dan Minuman\n");
+        printf("2. untuk melihat Menu\n");
+        printf("3. untuk menambah data Baru\n");
+        printf("4. untuk mengupdate menu\n");
         printf("5. untuk menghapus isi inputan\n");
         printf("6. untuk mencari isi inputan\n");
         printf("7. keluar\n");
@@ -134,17 +161,16 @@ void main()
         switch (pilihan)
         {
         case 1:
-            makanan();
+            menu();
             break;
-//         case 2:
-//             minuman();
-//             break;
+        case 2:
+            lihat();
+            break;
 //        case 3:
-//            lihat();
-//            break;
-        // case 4:
-        //     edit();
-        //     break;
+//            tambahdata();
+//         case 4:
+//             edit();
+//             break;
         // case 5:
         //     hapus();
         //     break;
@@ -159,3 +185,4 @@ void main()
         }
     } while (pilihan != 7);
 }
+
