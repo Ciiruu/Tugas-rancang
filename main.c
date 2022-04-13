@@ -617,7 +617,7 @@ void keluar(){
     system("cls");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),9);
     gotoxy(40,10);
-    char aad[]="\tTR ASDOS ASD \n\n\t\t\t\t\tRICARDHO GUNAWAN (672021062)\n\n\t\t\t\t\tCARENS GABRIEL (672021095) \n\n\t\t\t\t\tSTEVIE ANGELA ANDRIANTO (672021033) ";
+    char aad[]="\tTR ASDOS ASD \n\n\t\t\t\t\tRICARDHO GUNAWAN (672021062)\n\n\t\t\t\t\tCARENS GABRIEL FEBEL LUMI (672021095) \n\n\t\t\t\t\tSTEVIE ANGELA ANDRIANTO (672021033) ";
 
          for(int f=0; aad[f]!=NULL; f++)
             {
