@@ -371,10 +371,10 @@ void lihatCari(int index){
         printf("_______________________________________________________________________________\n");
 
         printf("\t\t\t%s\t",trs[index].no);
-        printf("\t%s\t",trs[index].meja);
-        printf("\t%s\t",trs[index].makan);
-        printf("\t%s",trs[index].minum);
-        printf("\t\t%s",trs[index].harga);
+        printf("\t%s\t",  trs[index].meja);
+        printf("\t%s\t",  trs[index].makan);
+        printf("\t%s",  trs[index].minum);
+        printf("\t\t%s",  trs[index].harga);
         printf("\n\t\t\t_______________________________________________________________________________");
 
 
@@ -617,7 +617,7 @@ void mengurutkan(){
     printf("\t\t====================================================================================\n\n");
 
         for(a=0;a<b;a++){
-        printf("\n\n\t\t\t\t%s\t",tempTrs[a].no);
+        printf("\n\n\t\t\t%s\t",tempTrs[a].no);
         printf("\t%s\t",tempTrs[a].meja);
         printf("\t%s\t",tempTrs[a].makan);
         printf("\t%s",tempTrs[a].minum);
@@ -633,49 +633,17 @@ void mengurutkan(){
 void keluar(){
     system("cls");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),8);
+    char aad[]="\n\n\n\n\n\n\n\n\t\t\t\t\t\tTR ASDOS ASD \n\n\t\t\t\t\tRICARDHO GUNAWAN (672021062)\n\n\t\t\t\t\tCARENS GABRIEL (672021095) \n\n\t\t\t\t\tSTEVIE ANGELA ANDRIANTO (672021033) ";
 
-    const char aw[] =
-"\
-                                                       /^\\\n\
-                                                      / _ \\\n\
-                                                      |   |\n\
-                                                      | S |\n\
-                                                      | E |\n\
-                                              ________| L |________\n\
-                                             /        | E |        \\\n\
-           _                                /_________| S |_________\\\n\
-          /^\\                                         | A |\n\
-          | |                                         | I |\n\
-     _____|F|_____                                    |   |\n\
-    /_____|T|_____\\                                   | L |\n\
-          |I|                                       __| U |__\n\
-          | |                                      /    R     \\\n\
-         /___\\                                    /____________\\\n\
-                                                                                                   _\n\
-                                                        T                                         /^\\\n\
-                                                        E                                         | |\n\
-                                                        R                                         |U|\n\
-                                                        I                                    _____|K|_____\n\
-                                                        M                                   /_____|S|_____\\\n\
-                                                        A                                         |W|\n\
-                                                                                                  | |\n\
-                                                        K                                        /___\\\n\
-                                                        A\n\
-                                                        S\n\
-                                                        I\n\
-                                                        H\n\
-                                                        ";
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),9);
-    for (int i = 0; i < 10; i ++) printf("\n");
-    printf("%s", aw);
-    int j = 300000;
-    for (int i = 0; i < 100; i ++) {
-        usleep(j);
-        j = (int)(j * 0.99);
-        printf("\n");
-    }
-    system("taskkill/IM cb_console_runner.exe");
-    }
+         for(int f=0; aad[f]!=NULL; f++)
+            {
+             printf("%c",aad[f]);
+             Sleep(50);
+            }
+            printf("\n");
+            exit(1);
+
+}
 
 void waktu() {
     struct wk *Sys_T;
@@ -800,7 +768,7 @@ void login(){
         system("cls");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),13);
     gotoxy(25,13);
-    char aad[]="W     E     L     C     O     M     E";
+    char aad[]="             W     E     L     C     O     M     E"             ;
          for(y=0; aad[y]!=NULL; y++){
              printf("%c",aad[y]);
              Sleep(50);
@@ -819,7 +787,7 @@ int main(){
     gotoxy(33,5);
     printf("_______________________________________________");
     gotoxy(35,3);
-    char aad[]=" SELAMAT DATANG DI DATA TRANSAKSI RESTORAN\n\t\t\t\t\t   xxx RESTORAN MAMA MUDA xxx";
+    char aad[]=" SELAMAT DATANG DI DATA TRANSAKSI RESTORAN\n\t\t\t\t\t\t    RESTORAN OM     ";
          for(f=0; aad[f]!=NULL; f++){
              printf("%c",aad[f]);
              Sleep(30);
