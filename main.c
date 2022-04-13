@@ -485,23 +485,6 @@ void mencari(){
 }
 
 
-
-void riwayat(){
-    system("cls");
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),6);
-    gotoxy(32,1);
-    printf(" _______________________________________________\n");
-    gotoxy(32,2);
-    printf("|                                               |\n");
-    gotoxy(32,3);
-    printf("|             RIWAYAT DATA TRANSAKSI            |\n");
-    gotoxy(32,4);
-    printf("|                  RESTORAN OM                  |\n");
-    gotoxy(32,5);
-    printf("|_______________________________________________|\n");
-}
-
-
 int struct_compare_no(const void *a, const void *b)
 {
     struct transaksi *ia = (struct transaksi *)a;
@@ -801,11 +784,10 @@ int main(){
     printf("\t\t\t\t|   4. Menghapus Data Transaksi                 |\n");
     printf("\t\t\t\t|   5. Mengedit Data Transaksi                  |\n");
     printf("\t\t\t\t|   6. Mencari Data Transaksi                   |\n");
-    printf("\t\t\t\t|   7. Riwayat Aktivitas Transaksi              |\n");
-    printf("\t\t\t\t|   8. Mengurutkan Data Transaksi               |\n");
-    printf("\t\t\t\t|   9. Keluar Dari Program                      |\n");
+    printf("\t\t\t\t|   7. Mengurutkan Data Transaksi               |\n");
+    printf("\t\t\t\t|   8. Keluar Dari Program                      |\n");
     printf("\t\t\t\t|_______________________________________________|\n\n");
-    printf("\t\t\t\tMasukkan Pilihan    [1-9]:       ");
+    printf("\t\t\t\tMasukkan Pilihan    [1-8]:       ");
     scanf("%d", &pilih);
 
     switch(pilih){
@@ -863,19 +845,14 @@ int main(){
         goto menu;
     break;
         keluar();
+  
     case 7:
-        riwayat();
-        system("cls");
-        goto menu;
-    break;
-
-    case 8:
         mengurutkan();
         system("cls");
         goto menu;
     break;
 
-    case 9:
+    case 8:
         keluar();
         printf("\n");
         system("cls");
